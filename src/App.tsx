@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -11,7 +11,18 @@ function App() {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
-  return <></>;
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  return (
+    <div className="app">
+      <button onClick={toggleTheme}>
+        Switch to {theme === "light" ? "Dark" : "Light"} Mode
+      </button>
+    </div>
+  );
 }
 
 export default App;
