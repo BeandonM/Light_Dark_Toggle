@@ -18,9 +18,16 @@ function App() {
 
   return (
     <div className="app">
-      <button onClick={toggleTheme}>
-        Switch to {theme === "light" ? "Dark" : "Light"} Mode
-      </button>
+      <p className="mode-text">{theme === "light" ? "Light" : "Dark"}</p>
+      <label className="switch">
+        <input
+          type="checkbox"
+          id="theme-switch"
+          checked={theme === "dark"}
+          onChange={toggleTheme}
+        />
+        <div className="switch-btn"></div>
+      </label>
     </div>
   );
 }
